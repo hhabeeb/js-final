@@ -1,49 +1,54 @@
-import { Button, Stack, Text,    Modal,
-    ModalOverlay,
-    ModalContent,
-    ModalHeader,
-    ModalFooter,
-    ModalBody,
-    ModalCloseButton, useDisclosure } from '@chakra-ui/react'
+import {
+  Button,
+  Stack,
+  Text,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  useDisclosure,
+} from "@chakra-ui/react";
 
-import { TwitterTweetEmbed } from 'react-twitter-embed';
-
+import { TwitterTweetEmbed } from "react-twitter-embed";
+import Ticker from "react-ticker";
 
 function TextBar() {
-    const { isOpen, onOpen, onClose } = useDisclosure()
-    return (
-        <div>
-            <Stack spacing={3}>
-  <Text fontSize='6xl'>Welcome to the Top Tweets Tracker!</Text>
-  <Text fontSize='xs'>By Hamza Habeeb</Text>
-  <Text fontSize='3xl'>From the top 10 most liked Tweets of all time, the most liked, at 7.2 million, comes from the family of Chadwick Boseman. <Button variant='link' onClick={onOpen}>[Tweet]</Button></Text>
- 
-  
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  return (
+    <div>
+      <Stack spacing={3}>
+        <Text fontSize="6xl">Welcome to the Top Tweets Tracker!</Text>
+        <Text fontSize="xs">By Hamza Habeeb</Text>
+        <Text fontSize="3xl">
+          From the top 10 most liked Tweets of all time, the most liked, at 7.2
+          million, comes from{" "}
+          <Text onClick={onOpen} as="mark" cursor="grab">
+            the family of Chadwick Boseman.
+          </Text>{" "}
+        </Text>
 
+        <Modal isOpen={isOpen} onClose={onClose}>
+          <ModalOverlay />
+          <ModalContent>
+            <ModalHeader>Tweet</ModalHeader>
+            <ModalCloseButton />
+            <ModalBody>
+              <TwitterTweetEmbed tweetId={"1299530165463199747"} />
+            </ModalBody>
 
-<Modal isOpen={isOpen} onClose={onClose}>
-  <ModalOverlay />
-  <ModalContent>
-    <ModalHeader>Tweet</ModalHeader>
-    <ModalCloseButton />
-    <ModalBody>
-    <TwitterTweetEmbed
-  tweetId={'1299530165463199747'}
-/>
-    </ModalBody>
-
-    <ModalFooter>
-      <Button colorScheme='blue' mr={3} onClick={onClose}>
-        Close
-      </Button>
-     
-    </ModalFooter>
-  </ModalContent>
-</Modal>
-
-</Stack>
-        </div>
-    )
+            <ModalFooter>
+              <Button colorScheme="blue" mr={3} onClick={onClose}>
+                Close
+              </Button>
+            </ModalFooter>
+          </ModalContent>
+        </Modal>
+      </Stack>
+    </div>
+  );
 }
 
-export default TextBar
+export default TextBar;

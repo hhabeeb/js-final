@@ -1,9 +1,10 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
-import TextBar from '../components/textBar'
-import Biden from '../components/Biden'
-import TwitterShade from '../components/TwitterShade'
-import { Text, Stack } from '@chakra-ui/react'
+import Head from "next/head";
+import styles from "../styles/Home.module.css";
+import TextBar from "../components/textBar";
+import Biden from "../components/Biden";
+import TwitterShade from "../components/TwitterShade";
+import { Text, Stack, Divider } from "@chakra-ui/react";
+import Infograph from "../components/infograph";
 
 export default function Home() {
   return (
@@ -15,53 +16,31 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-    <Stack>
-        <TextBar/>
-        <Biden />
-        <Text fontSize='3xl'>If you categorize the Tweets based on the account type that is Tweeting, you’ll see the main categories are politics and entertainment.</Text>
-        <TwitterShade />
-        <Text fontSize='3xl'>Interestingly enough, <Text as='mark'>9 out of 10</Text>  of the most liked Tweets come from Tweets posted after 2020, during the COVID-19.</Text>
+        <Stack>
+          <TextBar />
+          <Biden />
+          <Text fontSize="3xl">
+            If you categorize the Tweets based on the account type that is
+            Tweeting, you’ll see the main categories are{" "}
+            <a href="#info_anchor">
+              {" "}
+              <Text as="mark" cursor="grab">
+                politics and entertainment.
+              </Text>
+            </a>
+          </Text>
+          <TwitterShade />
+          <Text fontSize="3xl">
+            Interestingly enough, <Text as="i">9 out of 10</Text> of the most
+            liked Tweets come from Tweets posted after 2020, during the
+            COVID-19. Check out the interactive section below to learn more.
+          </Text>
+          <br />
+          <Divider />
+          <br />
+          <Infograph />
         </Stack>
-
-
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
       </main>
-
-     
     </div>
-  )
+  );
 }
